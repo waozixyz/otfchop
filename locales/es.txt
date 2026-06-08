@@ -1,0 +1,26 @@
+¡Bienvenido a la aventura! Tu viaje comienza ahora.
+
+Presiona INICIO para comenzar tu misión. Usa las flechas para moverte y ESPACIO para interactuar con objetos.
+
+Salud: 100/100
+Nivel 5 - Bosque de las Sombras
+Inventario: Espada, Poción de Salud, Mapa
+
+La antigua profecía habla de un héroe que se levantará para derrotar la oscuridad. ¡Ese héroe eres tú!
+
+Enemigos derrotados: 42
+Puntuación: 15.750
+Tiempo: 02:34:12
+
+¡Fin del juego! Tu puntuación final ha sido guardada.
+Presiona cualquier tecla para continuar...
+
+¿Estás seguro de que quieres salir? Todo el progreso no guardado se perderá.
+
+[SÍ] [NO]
+
+Cargando... por favor espera.
+Guardando partida... ¡no apagues la energía!
+
+¡Felicidades! Has completado la versión de demostración.
+¡Gracias por jugar!

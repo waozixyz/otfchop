@@ -1,0 +1,26 @@
+Welcome to the adventure! Your journey begins now.
+
+Press START to begin your quest. Use the arrow keys to move and SPACE to interact with objects.
+
+Health: 100/100
+Level 5 - Forest of Shadows
+Inventory: Sword, Health Potion, Map
+
+The ancient prophecy speaks of a hero who will rise to defeat the darkness. That hero is you!
+
+Enemies defeated: 42
+Score: 15,750
+Time: 02:34:12
+
+Game Over! Your final score has been saved.
+Press any key to continue...
+
+Are you sure you want to quit? All unsaved progress will be lost.
+
+[YES] [NO]
+
+Loading... please wait.
+Saving game... do not turn off the power!
+
+Congratulations! You have completed the demo version.
+Thank you for playing!
