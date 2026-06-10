@@ -53,6 +53,22 @@ void add_codepoint(CodepointSet* set, int codepoint) {
     set->codepoints[set->count++] = codepoint;
 }
 
+void add_default_codepoints(CodepointSet* set, char* seen) {
+    static const char *defaults =
+        "0123456789"
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz"
+        " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+
+    for(const unsigned char *c = (const unsigned char *)defaults; *c != '\0'; c++) {
+        int codepoint = (int)*c;
+        if(!seen[codepoint]) {
+            seen[codepoint] = 1;
+            add_codepoint(set, codepoint);
+        }
+    }
+}
+
 int compare_ints(const void* a, const void* b) {
     return (*(int*)a - *(int*)b);
 }
@@ -189,6 +205,8 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    add_default_codepoints(&set, seen);
+
     for (int i = 2; i < argc - 1; i++) {
         printf("Parsing %s...\n", argv[i]);
         if (parse_utf8_file(argv[i], &set, seen) == 0) {
@@ -232,10 +250,9 @@ int main(int argc, char* argv[]) {
     float scale = stbtt_ScaleForPixelHeight(&font, GLYPH_HEIGHT);
 
     // Get font metrics
-    int ascent, descent, lineGap;
-    stbtt_GetFontVMetrics(&font, &ascent, &descent, &lineGap);
-    ascent *= scale;
-    descent *= scale;
+    int ascent;
+    stbtt_GetFontVMetrics(&font, &ascent, NULL, NULL);
+    int ascent_px = (int)((float)ascent * scale + 0.5f);
 
     // Allocate glyph info array
     ChoppedGlyph* glyphs = malloc(unique_count * sizeof(ChoppedGlyph));
@@ -311,7 +328,7 @@ int main(int argc, char* argv[]) {
         glyphs[i].w = gw;
         glyphs[i].h = gh;
         glyphs[i].offsetX = ix0;
-        glyphs[i].offsetY = iy0 + (int)(ascent * scale);
+        glyphs[i].offsetY = iy0 + ascent_px;
         glyphs[i].advanceX = (int)(advance * scale);
     }
 
